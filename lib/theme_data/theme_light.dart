@@ -24,9 +24,12 @@ ThemeData themeLight() {
       // ex) TextFieldのエラーメッセージ
       error: Colors.red,
       // appbar 背景色
-      surface: Colors.blue,
+      surface: Colors.green,
       // card 背景色
       surfaceContainerLow: Colors.amberAccent,
+      // dialog
+      surfaceContainerHigh: Colors.pink,
+
       // OutlinedButtonの枠線の色や、エラーなし時のTextFieldの枠線の色、Switchの枠線の色
       outline: Colors.orangeAccent,
       // etc 要件に応じて追加可能
@@ -65,6 +68,19 @@ ThemeData themeLight() {
       foregroundColor: Colors.white,
     ),
 
+    // dialog
+    // dialogTheme: DialogTheme(
+    //   backgroundColor: Colors.pink,
+    //   titleTextStyle: TextStyle(
+    //     color: Colors.black,
+    //     fontSize: 24,
+    //   ),
+    //   contentTextStyle: TextStyle(
+    //     color: Colors.black,
+    //     fontSize: 18,
+    //   ),
+    // ),
+
     // etc 要件に応じて追加可能
 
     // https://qiita.com/najeira/items/dfa20d0104bd4457bc9a
@@ -77,3 +93,5 @@ ThemeData themeLight() {
     ),
   );
 }
+
+

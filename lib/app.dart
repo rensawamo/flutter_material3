@@ -11,7 +11,9 @@ class MyApp extends ConsumerWidget {
       appBar: AppBar(
         title: Text(
           "Theme Tips",
-          style: TextStyle(color: Theme.of(context).colorScheme.primary,),
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.primary,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -72,7 +74,26 @@ class MyApp extends ConsumerWidget {
 
       // FloatingActionButtonの設定が適応される例
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          // ボタンが押されたときにダイアログを表示する
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text("Dialog Title"),
+                content: const Text("This is a simple dialog."),
+                actions: <Widget>[
+                  TextButton(
+                    child: const Text("Close"),
+                    onPressed: () {
+                      Navigator.of(context).pop(); // ダイアログを閉じる
+                    },
+                  ),
+                ],
+              );
+            },
+          );
+        },
         child: const Icon(Icons.add),
       ),
     );
