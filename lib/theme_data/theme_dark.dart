@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData themeDark() {
-  const primary = Colors.green;
-  const onPrimary = Colors.grey;
-  const secoundary = Colors.blue;
+  const primary = Color.fromARGB(255, 56, 106, 31);
 
   // テーマの基本設定
+  // https://zenn.dev/gen_kk/articles/cc538ffa392922
   final base = ThemeData(
     /// アプリのフォントを指定
     fontFamily: GoogleFonts.kiwiMaru().fontFamily,
@@ -18,29 +17,32 @@ ThemeData themeDark() {
       //  この色を元にして他の色が生成される
       seedColor: primary,
       // プライマリカラー(一番よく使う色)
-      // swich on時の色
-      //ex) style: TextStyle(color: theme.colorScheme.primary)),
+      // カラーが指定されてない場合、defaultのテキストカラーが primaryで設定されているケースが多い
       primary: primary,
-      // アクセントカラー
-      secondary: secoundary,
-      // errorの色
-      // ex) TextFieldのエラーメッセージ
-      error: Colors.red,
-      // appbar 背景色
-      surface: Colors.blue,
-      // card 背景色
-      surfaceContainerLow: Colors.pink,
-      // OutlinedButtonの枠線の色や、エラーなし時のTextFieldの枠線の色、Switchの枠線の色
-      outline: Colors.orangeAccent,
-      // etc 要件に応じて追加可能
+      // appbarなどの 背景色
+      surface: primary,
+      // errorは図の通り本来は赤色だが、今回は青色に設定する例
+      error: Colors.blue,
+      // cardなどの 背景色
+      surfaceContainerLow: Colors.grey,
     ),
-    textTheme: const TextTheme(
-      // Text("") のデフォルトスタイルを指定。
-      // titleなど他にもデフォルトの設定をここで適応可能。
-          bodyMedium: TextStyle(fontSize: 22, color: Colors.cyan),
 
-      // fontWeight: FontWeight.bold,
-      // height: 1.5,
+    // テキストスタイルのを統一する
+    textTheme: const TextTheme(
+      // https://flutter.salon/widget/textstyle/
+      // 一環したテキストスタイルを定義す
+
+      /// Middle size of the body styles.
+      ///
+      /// Body styles are used for longer passages of text.
+      ///
+      /// The default text style for [Material].
+      // final TextStyle? bodyMedium;
+
+      // デフォルトのテキストスタイル
+      bodyMedium: TextStyle(fontSize: 18),
+      // ヘッドラインのテキストスタイル
+      headlineMedium: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
     ),
   );
 
@@ -50,18 +52,17 @@ ThemeData themeDark() {
     // ElevatedButtonのテーマを設定する例
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: primary,
-        foregroundColor: onPrimary,
+        backgroundColor: Colors.purple,
+        foregroundColor: Colors.white,
       ),
     ),
-
     // floatingActionButtonのテーマを設定する例
     floatingActionButtonTheme: base.floatingActionButtonTheme.copyWith(
-      backgroundColor: Colors.red,
-      foregroundColor: Colors.white,
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
     ),
-    // etc 要件に応じて追加可能
 
+    // etc 要件に応じて追加可能
     // https://qiita.com/najeira/items/dfa20d0104bd4457bc9a
     // ios風の遷移アニメーションを設定
     pageTransitionsTheme: const PageTransitionsTheme(

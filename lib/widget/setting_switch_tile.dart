@@ -4,11 +4,9 @@ import 'package:flutter_theme/theme_color_repository/theme_color_repository.dart
 
 class SettingsSwitchTile extends ConsumerStatefulWidget {
   final String title;
-  final IconData icon;
   const SettingsSwitchTile({
     Key? key,
     required this.title,
-    required this.icon,
   }) : super(key: key);
   @override
   _SettingsSwitchTileState createState() => _SettingsSwitchTileState();
@@ -22,7 +20,6 @@ class _SettingsSwitchTileState extends ConsumerState<SettingsSwitchTile> {
     return ListTile(
       contentPadding:
           const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-      leading: Icon(widget.icon),
       title: Text(widget.title),
       trailing: Switch(
         autofocus: true,
